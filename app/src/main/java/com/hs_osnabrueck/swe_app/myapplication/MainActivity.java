@@ -183,7 +183,7 @@ public class MainActivity extends ActionBarActivity
         }
 
         public PlaceholderFragment() {
-            
+
         }
 
         @Override
