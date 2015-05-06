@@ -1,22 +1,14 @@
 package com.hs_osnabrueck.swe_app.myapplication;
 
-import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
@@ -27,11 +19,6 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
-    private CharSequence mTitle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +26,6 @@ public class MainActivity extends ActionBarActivity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -61,47 +47,55 @@ public class MainActivity extends ActionBarActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new HomeFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section1));
                 break;
             case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new KarteFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section2));
                 break;
             case 3:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new VeranstaltungenFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section3));
                 break;
             case 4:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new EinkaufswagenFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section4));
                 break;
             case 5:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new SpielstatistikFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section5));
                 break;
             case 6:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new AchievementFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section6));
                 break;
             case 7:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new WasIstEinBeaconFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section7));
                 break;
             case 8:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new EinstellungenFragment())
                         .commit();
+                restoreActionBar(getString(R.string.title_section8));
                 break;
         }
 
     }
 
-    public void onSectionAttached(int number) {
+/*    public void onSectionAttached(int number) {
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
@@ -128,9 +122,9 @@ public class MainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_section8);
                 break;
         }
-    }
+    }*/
 
-    public void restoreActionBar() {
+    public void restoreActionBar(String mTitle) {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
@@ -189,6 +183,7 @@ public class MainActivity extends ActionBarActivity
         }
 
         public PlaceholderFragment() {
+            
         }
 
         @Override
@@ -198,12 +193,12 @@ public class MainActivity extends ActionBarActivity
             return rootView;
         }
 
-        @Override
+       /* @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
-        }
+        }*/
     }
 
 }
