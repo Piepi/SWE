@@ -20,6 +20,7 @@ public class KarteFragment extends Fragment {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_karte, container, false);
         //MAP
+        // test
         return rootView;
     }
 }
