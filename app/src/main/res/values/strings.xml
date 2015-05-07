@@ -25,4 +25,6 @@
 
     <string name="homescreen_button">Scan</string>
     <string name="startscreen_appname">App-Name</string>
+    <string name="einkaufswagenscreen_download_button">Download "Wir sind im Garten"-App</string>
+
 </resources>
