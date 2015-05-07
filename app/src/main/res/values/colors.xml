@@ -1,0 +1,7 @@
+<resources>
+    <color name="normal">#33B5E5</color>
+    <color name="schwarz">#222222</color>
+    <color name="weiß">#FFFFFF</color>
+    <color name="grey_dark">#696969</color>
+    <color name="grey_light">#BFBFBF</color>
+</resources>
