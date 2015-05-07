@@ -2,21 +2,19 @@ package com.hs_osnabrueck.swe_app.myapplication;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothGatt;
-import android.bluetooth.BluetoothGattCallback;
-import android.bluetooth.BluetoothGattCharacteristic;
 
 public class BeaconSearch {
 
-    private BluetoothAdapter mBluetoothAdapter;
-    private boolean mScanning;
     private BluetoothAdapter.LeScanCallback leScanCallback;
-    private BluetoothGattCallback btleGattCallback = null;
+    //private BluetoothGattCallback btleGattCallback = null;
 
     private Beacon beacon;
 
     public BeaconSearch(){
 
+        leScanCallback = null;
+        beacon = new Beacon("","",0);
+/*
         btleGattCallback = new BluetoothGattCallback() {
 
             @Override
@@ -33,9 +31,13 @@ public class BeaconSearch {
             public void onServicesDiscovered(final BluetoothGatt gatt, final int status) {
                 // this will get called after the client initiates a            BluetoothGatt.discoverServices() call
             }
-        };
+        };*/
 
-        leScanCallback = new BluetoothAdapter.LeScanCallback() {
+
+    }
+
+    public BluetoothAdapter.LeScanCallback getLeScanCallback() {
+        return new BluetoothAdapter.LeScanCallback() {
             @Override
             public void onLeScan(final BluetoothDevice device, final int rssi, final byte[] scanRecord) {
 
@@ -48,10 +50,6 @@ public class BeaconSearch {
 
             }
         };
-    }
-
-    public BluetoothAdapter.LeScanCallback getLeScanCallback() {
-        return leScanCallback;
     }
 
     public Beacon getBeacon() {
